@@ -44,7 +44,7 @@ class SearchViewController: UIViewController {
     // when you use #selector, we need to expose its function in the parameter to @objc
     @objc func pushFollowerListVC() {
         guard isUsernameEntered else {
-            print("No username")
+            presentGFAlertOnMainThread(title: "Empty Username", message: "Please enter a username. We need to know who to look for 😬", buttonTitle: "Ok")
             return
         }
         

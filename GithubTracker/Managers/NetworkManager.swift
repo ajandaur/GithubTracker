@@ -16,13 +16,13 @@ class NetworkManager {
     private init() { }
     
     // f(x) to return an array of followers
-    func getFollower(for username: String, page: Int, completed: @escaping ([Follower]?, String?) -> Void) {
+    func getFollower(for username: String, page: Int, completed: @escaping ([Follower]?, ErrorMessage?) -> Void) {
         
         let endpoint = baseURL + "\(username)/followers?per_page=\(perPageFollowers)&page=\(page)"
         
         // check that we have a valid URL
         guard let url = URL(string: endpoint) else {
-            completed(nil, "This username created an invalid request, Please try again.")
+            completed(nil, .invalidUsername)
             return
         }
         
@@ -30,19 +30,19 @@ class NetworkManager {
             
             // handling error
             if let _ = error {
-                completed(nil, "Unable to complete your request. Please check your internet connection")
+                completed(nil, .unabletoComplete)
                 return
             }
             
             // if this response is not nil, put it as a response and check if it is 200 (OK)
             guard let response = response as? HTTPURLResponse, response.statusCode == 200 else {
-                completed(nil, "Invalid response from the server, please try again.")
+                completed(nil, .invalidResponse)
                 return
             }
             
             // handle data
             guard let data = data else {
-                completed(nil, "The data received from the server was invalid. Please try again.")
+                completed(nil, .invalidData)
                 return
             }
             
@@ -53,7 +53,7 @@ class NetworkManager {
                 let followers = try decoder.decode([Follower].self, from: data)
                 completed(followers, nil)
             } catch {
-                completed(nil, "The data received from the server was invalid. Please try again.")
+                completed(nil, .invalidData)
             }
         }
         task.resume()

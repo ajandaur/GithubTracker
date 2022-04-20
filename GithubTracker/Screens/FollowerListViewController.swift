@@ -18,15 +18,18 @@ class FollowerListViewController: UIViewController {
         navigationController?.navigationBar.prefersLargeTitles = true
         
         // introduce completion handler via singleton
-        NetworkManager.shared.getFollower(for: username, page: 1) { (followers, errorMessage) in
-            guard let followers = followers else {
-                self.presentGFAlertOnMainThread(title: "Bad Stuff Happened", message: errorMessage!, buttonTitle: "OK")
-                return
-            }
-            // we have valid followers if we reach this point!
+        NetworkManager.shared.getFollower(for: username, page: 1) { result in
             
-            print("followers count: \(followers.count)")
-            print(followers)
+            switch result {
+                // if successful..
+            case .success(let followers):
+                // configure collectionView
+                print(followers)
+                
+                // if fails..
+            case .failure(let error):
+                self.presentGFAlertOnMainThread(title: "Bad Stuff Happened", message: error.rawValue, buttonTitle: "Ok")
+            }
         }
     }
     
@@ -34,5 +37,5 @@ class FollowerListViewController: UIViewController {
         super.viewWillAppear(animated)
         navigationController?.setNavigationBarHidden(false, animated: true)
     }
-
+    
 }

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		87255C482811DFBB0002E016 /* UIHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87255C472811DFBB0002E016 /* UIHelper.swift */; };
 		875FEB26280E1B5200915661 /* GFButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 875FEB25280E1B5200915661 /* GFButton.swift */; };
 		875FEB28280E1F0200915661 /* GFTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 875FEB27280E1F0200915661 /* GFTextField.swift */; };
 		875FEB2A280E34BC00915661 /* FollowerListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 875FEB29280E34BC00915661 /* FollowerListViewController.swift */; };
@@ -31,6 +32,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		87255C472811DFBB0002E016 /* UIHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIHelper.swift; sourceTree = "<group>"; };
 		875FEB25280E1B5200915661 /* GFButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GFButton.swift; sourceTree = "<group>"; };
 		875FEB27280E1F0200915661 /* GFTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GFTextField.swift; sourceTree = "<group>"; };
 		875FEB29280E34BC00915661 /* FollowerListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FollowerListViewController.swift; sourceTree = "<group>"; };
@@ -132,6 +134,7 @@
 			isa = PBXGroup;
 			children = (
 				876162602810BFCB00E0B195 /* ErrorMessage.swift */,
+				87255C472811DFBB0002E016 /* UIHelper.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -249,6 +252,7 @@
 				875FEB2A280E34BC00915661 /* FollowerListViewController.swift in Sources */,
 				876162612810BFCB00E0B195 /* ErrorMessage.swift in Sources */,
 				876162662810E50F00E0B195 /* GFAvatarImageView.swift in Sources */,
+				87255C482811DFBB0002E016 /* UIHelper.swift in Sources */,
 				876162592810932D00E0B195 /* Follower.swift in Sources */,
 				875FEB34280E923B00915661 /* UIViewController+Ext.swift in Sources */,
 				87BCEBA9280CF0DB00A66D96 /* FavListViewController.swift in Sources */,

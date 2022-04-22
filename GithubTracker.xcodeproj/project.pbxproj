@@ -29,6 +29,7 @@
 		87BCEB9F280CE89A00A66D96 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 87BCEB9D280CE89A00A66D96 /* LaunchScreen.storyboard */; };
 		87BCEBA7280CF0AE00A66D96 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87BCEBA6280CF0AE00A66D96 /* SearchViewController.swift */; };
 		87BCEBA9280CF0DB00A66D96 /* FavListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87BCEBA8280CF0DB00A66D96 /* FavListViewController.swift */; };
+		87F27215281322F200BC7A0C /* GFEmptyStateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87F27214281322F200BC7A0C /* GFEmptyStateView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -56,6 +57,7 @@
 		87BCEBA0280CE89A00A66D96 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		87BCEBA6280CF0AE00A66D96 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		87BCEBA8280CF0DB00A66D96 /* FavListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavListViewController.swift; sourceTree = "<group>"; };
+		87F27214281322F200BC7A0C /* GFEmptyStateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GFEmptyStateView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -82,13 +84,13 @@
 		875FEB36280F2B8600915661 /* Custom Views */ = {
 			isa = PBXGroup;
 			children = (
-				875FEB31280E753300915661 /* GFAlertVC.swift */,
-				875FEB27280E1F0200915661 /* GFTextField.swift */,
-				875FEB2D280E6CF200915661 /* GFTitleLabel.swift */,
-				875FEB2F280E70FA00915661 /* GFBodyLabel.swift */,
-				875FEB25280E1B5200915661 /* GFButton.swift */,
 				875FEB39280F2E8100915661 /* ContainerView.swift */,
-				876162652810E50F00E0B195 /* GFAvatarImageView.swift */,
+				87F272132813227F00BC7A0C /* Labels */,
+				87F272122813226A00BC7A0C /* ImageViews */,
+				87F272112813226100BC7A0C /* ViewControllers */,
+				87F272102813225900BC7A0C /* TextFields */,
+				87F2720F2813225500BC7A0C /* Buttons */,
+				87F2720E2813225000BC7A0C /* Views */,
 			);
 			path = "Custom Views";
 			sourceTree = "<group>";
@@ -179,6 +181,55 @@
 			path = GithubTracker;
 			sourceTree = "<group>";
 		};
+		87F2720E2813225000BC7A0C /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				87F27214281322F200BC7A0C /* GFEmptyStateView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		87F2720F2813225500BC7A0C /* Buttons */ = {
+			isa = PBXGroup;
+			children = (
+				875FEB25280E1B5200915661 /* GFButton.swift */,
+			);
+			path = Buttons;
+			sourceTree = "<group>";
+		};
+		87F272102813225900BC7A0C /* TextFields */ = {
+			isa = PBXGroup;
+			children = (
+				875FEB27280E1F0200915661 /* GFTextField.swift */,
+			);
+			path = TextFields;
+			sourceTree = "<group>";
+		};
+		87F272112813226100BC7A0C /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				875FEB31280E753300915661 /* GFAlertVC.swift */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		87F272122813226A00BC7A0C /* ImageViews */ = {
+			isa = PBXGroup;
+			children = (
+				876162652810E50F00E0B195 /* GFAvatarImageView.swift */,
+			);
+			path = ImageViews;
+			sourceTree = "<group>";
+		};
+		87F272132813227F00BC7A0C /* Labels */ = {
+			isa = PBXGroup;
+			children = (
+				875FEB2D280E6CF200915661 /* GFTitleLabel.swift */,
+				875FEB2F280E70FA00915661 /* GFBodyLabel.swift */,
+			);
+			path = Labels;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -264,6 +315,7 @@
 				8761625B281093EC00E0B195 /* User.swift in Sources */,
 				876162642810E17C00E0B195 /* FollowerCell.swift in Sources */,
 				875FEB30280E70FA00915661 /* GFBodyLabel.swift in Sources */,
+				87F27215281322F200BC7A0C /* GFEmptyStateView.swift in Sources */,
 				87BCEBA7280CF0AE00A66D96 /* SearchViewController.swift in Sources */,
 				87BCEB95280CE89900A66D96 /* SceneDelegate.swift in Sources */,
 				875FEB2E280E6CF200915661 /* GFTitleLabel.swift in Sources */,

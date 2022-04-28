@@ -7,6 +7,10 @@
 
 import UIKit
 
+protocol FollowerListVCDelegate: AnyObject {
+    func didRequestFollowers(for username: String)
+}
+
 class FollowerListViewController: UIViewController {
     
     // enum is Hashable by default
@@ -146,6 +150,8 @@ extension FollowerListViewController: UICollectionViewDelegate {
         // pass in user into UserInfoVC
         let destVC = UserInfoViewController()
         destVC.username = follower.login
+        // the FollowerListVC is now LISTENING to the UserInfoVC since we declared the delegate of UserInfVC to the FollowerListVC
+        destVC.delegate = self
         let navController = UINavigationController(rootViewController: destVC)
         present(navController, animated: true)
     }
@@ -166,4 +172,20 @@ extension FollowerListViewController: UISearchResultsUpdating, UISearchBarDelega
         isSearching = false
         print("Cancel tapped")
     }
+}
+
+extension FollowerListViewController: FollowerListVCDelegate {
+    func didRequestFollowers(for username: String) {
+        // set the username that was passed through..
+        self.username = username
+        title = username
+        // reset the screen
+        page = 1
+        followers.removeAll()
+        filteredFollowers.removeAll()
+        collectionView.setContentOffset(.zero, animated: true)
+        getFollowers(username: username, page: page)
+    }
+    
+    
 }

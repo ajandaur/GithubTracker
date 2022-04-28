@@ -12,6 +12,7 @@
 		87198A90281A531E00DE9100 /* GFFollowerItemVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87198A8F281A531E00DE9100 /* GFFollowerItemVC.swift */; };
 		87198A93281A599700DE9100 /* Date+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87198A92281A599700DE9100 /* Date+Ext.swift */; };
 		87198A95281A59C600DE9100 /* String+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87198A94281A59C600DE9100 /* String+Ext.swift */; };
+		87198A97281B137F00DE9100 /* PersistenceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87198A96281B137F00DE9100 /* PersistenceManager.swift */; };
 		87255C482811DFBB0002E016 /* UIHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87255C472811DFBB0002E016 /* UIHelper.swift */; };
 		875FEB26280E1B5200915661 /* GFButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 875FEB25280E1B5200915661 /* GFButton.swift */; };
 		875FEB28280E1F0200915661 /* GFTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 875FEB27280E1F0200915661 /* GFTextField.swift */; };
@@ -48,6 +49,7 @@
 		87198A8F281A531E00DE9100 /* GFFollowerItemVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GFFollowerItemVC.swift; sourceTree = "<group>"; };
 		87198A92281A599700DE9100 /* Date+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Ext.swift"; sourceTree = "<group>"; };
 		87198A94281A59C600DE9100 /* String+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Ext.swift"; sourceTree = "<group>"; };
+		87198A96281B137F00DE9100 /* PersistenceManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistenceManager.swift; sourceTree = "<group>"; };
 		87255C472811DFBB0002E016 /* UIHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIHelper.swift; sourceTree = "<group>"; };
 		875FEB25280E1B5200915661 /* GFButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GFButton.swift; sourceTree = "<group>"; };
 		875FEB27280E1F0200915661 /* GFTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GFTextField.swift; sourceTree = "<group>"; };
@@ -161,6 +163,7 @@
 			isa = PBXGroup;
 			children = (
 				8761625D2810A7BE00E0B195 /* NetworkManager.swift */,
+				87198A96281B137F00DE9100 /* PersistenceManager.swift */,
 			);
 			path = Managers;
 			sourceTree = "<group>";
@@ -357,6 +360,7 @@
 				875FEB32280E753300915661 /* GFAlertVC.swift in Sources */,
 				87BCEB93280CE89900A66D96 /* AppDelegate.swift in Sources */,
 				875FEB2C280E39A600915661 /* StringExtension.swift in Sources */,
+				87198A97281B137F00DE9100 /* PersistenceManager.swift in Sources */,
 				87F27319281643BA00BC7A0C /* GFSecondaryTitleLabel.swift in Sources */,
 				8761625B281093EC00E0B195 /* User.swift in Sources */,
 				876162642810E17C00E0B195 /* FollowerCell.swift in Sources */,

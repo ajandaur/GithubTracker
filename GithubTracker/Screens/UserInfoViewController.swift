@@ -34,9 +34,7 @@ class UserInfoViewController: UIViewController {
     
     func configureViewController() {
         view.backgroundColor = .systemBackground
-        
         let doneButton = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(dismissVC))
-        
         navigationItem.rightBarButtonItem = doneButton
     }
     

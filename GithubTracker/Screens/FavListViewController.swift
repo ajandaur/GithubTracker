@@ -12,7 +12,15 @@ class FavListViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        view.backgroundColor = .systemBlue
+        // try to retrieve fav followers array
+        PersistenceManager.retrieveFavorites { result in
+            switch result {
+            case .success(let favorites):
+                print(favorites)
+            case .failure(let error):
+                break
+            }
+        }
     }
     
 }

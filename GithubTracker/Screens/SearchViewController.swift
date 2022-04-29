@@ -33,11 +33,12 @@ class SearchViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        usernameTextField.text = ""
         navigationController?.setNavigationBarHidden(true, animated: true)
     }
     
     func createDismissKeyboardTapGesture() {
-        let tap = UITapGestureRecognizer(target: self.view, action: #selector(UIView.endEditing))
+        let tap = UITapGestureRecognizer(target: view, action: #selector(UIView.endEditing))
         view.addGestureRecognizer(tap)
     }
     
@@ -48,11 +49,10 @@ class SearchViewController: UIViewController {
             return
         }
         
+        usernameTextField.resignFirstResponder()
+        
         // create the object
-        let followerListVC = FollowerListViewController()
-        // configure the data you want to pass
-        followerListVC.username = usernameTextField.text
-        followerListVC.title = usernameTextField.text
+        let followerListVC = FollowerListViewController(username: usernameTextField.text!)
         // push the view controller onto the stack
         navigationController?.pushViewController(followerListVC, animated: true)
     }
@@ -60,7 +60,7 @@ class SearchViewController: UIViewController {
     func configureLogoImageView() {
         view.addSubview(logoImageView)
         logoImageView.translatesAutoresizingMaskIntoConstraints = false
-        logoImageView.image = UIImage(named: "gh-logo")
+        logoImageView.image = Images.GHLogo
         
         NSLayoutConstraint.activate([
             // add an array of constraints

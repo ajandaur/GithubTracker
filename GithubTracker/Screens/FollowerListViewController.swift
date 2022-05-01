@@ -7,9 +7,6 @@
 
 import UIKit
 
-protocol FollowerListVCDelegate: AnyObject {
-    func didRequestFollowers(for username: String)
-}
 
 class FollowerListViewController: GFDataLoadingVCViewController {
     
@@ -227,7 +224,7 @@ extension FollowerListViewController: UISearchResultsUpdating {
     
 }
 
-extension FollowerListViewController: FollowerListVCDelegate {
+extension FollowerListViewController: UserInfoVCDelegate {
     func didRequestFollowers(for username: String) {
         // set the username that was passed through..
         self.username = username

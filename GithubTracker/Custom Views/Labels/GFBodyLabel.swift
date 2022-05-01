@@ -32,6 +32,7 @@ class GFBodyLabel: UILabel {
         font = UIFont.preferredFont(forTextStyle: .body)
         // shrink label if it is too long
         adjustsFontSizeToFitWidth = true
+        adjustsFontForContentSizeCategory = true 
         // limit shrinking of font
         minimumScaleFactor = 0.75
         lineBreakMode = .byWordWrapping

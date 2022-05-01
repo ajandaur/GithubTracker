@@ -32,8 +32,7 @@ class FavoriteCell: UITableViewCell {
     }
     
     private func configure() {
-        addSubview(avatarImageView)
-        addSubview(usernameLabel)
+        addSubviews(avatarImageView, usernameLabel)
         
         // have a disclosure indicator
         accessoryType = .disclosureIndicator

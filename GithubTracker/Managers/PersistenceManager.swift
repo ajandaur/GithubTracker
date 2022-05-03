@@ -17,10 +17,8 @@ enum PersistenceManager {
     static private let defaults = UserDefaults.standard
     
     // enum to hold our constants
-    enum Keys {
-        static let favorites = "favorites"
-    }
-    
+    enum Keys { static let favorites = "favorite"}
+
     // pass in our follower and check whether it is adding or removing and f(x) will return error if unable to do so
     static func updateWith(favorite: Follower, actionType: PersistenceActionType, completed: @escaping (GFError?) -> Void) {
         // reach into UserDefaults to do the action

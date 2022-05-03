@@ -8,6 +8,7 @@
 import UIKit
 
 class NetworkManager {
+    
     // create the singleton
     static let shared = NetworkManager()
     let baseURL = "https://api.github.com/users/"

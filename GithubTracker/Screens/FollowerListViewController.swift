@@ -98,19 +98,7 @@ class FollowerListViewController: GFDataLoadingVCViewController {
             switch result {
                 // if successful..
             case .success(let followers):
-                if followers.count < 100 { self.hasMoreFollowers = false }
-                
-                // configure collectionView
-                
-                // make self weak = turns them into optionals
-                self.followers.append(contentsOf: followers)
-                
-                if self.followers.isEmpty {
-                    let message = "This user doesn't have any followers. Go follow them 😎"
-                    DispatchQueue.main.async { self.showEmptyStateView(with: message, in: self.view) }
-                    return 
-                }
-                self.updateData(on: self.followers)
+                self.updateUI(with: followers)
                 
                 // if fails..
             case .failure(let error):
@@ -119,6 +107,22 @@ class FollowerListViewController: GFDataLoadingVCViewController {
             
             self.isLoadingMoreFollowers = false
         }
+    }
+    
+    func updateUI(with followers: [Follower]) {
+        if followers.count < 100 { self.hasMoreFollowers = false }
+        
+        // configure collectionView
+        
+        // make self weak = turns them into optionals
+        self.followers.append(contentsOf: followers)
+        
+        if self.followers.isEmpty {
+            let message = "This user doesn't have any followers. Go follow them 😎"
+            DispatchQueue.main.async { self.showEmptyStateView(with: message, in: self.view) }
+            return
+        }
+        self.updateData(on: self.followers)
     }
     
     
@@ -149,25 +153,28 @@ class FollowerListViewController: GFDataLoadingVCViewController {
             
             switch result {
             case .success(let user):
-                let favorite = Follower(login: user.login, avatarUrl: user.avatarUrl)
-                
-                // .add type
-                PersistenceManager.updateWith(favorite: favorite, actionType: .add) { [weak self] error in
-                    guard let self = self else { return }
-                    
-                    // if error was nil
-                    guard let error = error else {
-                        self.presentGFAlertOnMainThread(title: "Success!", message: "You have successfully favorited this user 🥳", buttonTitle: "Hooray!")
-                        return
-                    }
-                    
-                    // if error wasn't nil..
-                    self.presentGFAlertOnMainThread(title: "Something went wrong", message: error.rawValue, buttonTitle: "Ok")
-                }
+                self.addUserToFavorites(user: user)
                 
             case .failure(let error):
                 self.presentGFAlertOnMainThread(title: "Something went wrong", message: error.rawValue, buttonTitle: "Ok")
             }
+        }
+    }
+    func addUserToFavorites(user: User) {
+        let favorite = Follower(login: user.login, avatarUrl: user.avatarUrl)
+        
+        // .add type
+        PersistenceManager.updateWith(favorite: favorite, actionType: .add) { [weak self] error in
+            guard let self = self else { return }
+            
+            // if error was nil
+            guard let error = error else {
+                self.presentGFAlertOnMainThread(title: "Success!", message: "You have successfully favorited this user 🥳", buttonTitle: "Hooray!")
+                return
+            }
+            
+            // if error wasn't nil..
+            self.presentGFAlertOnMainThread(title: "Something went wrong", message: error.rawValue, buttonTitle: "Ok")
         }
     }
     
@@ -231,6 +238,7 @@ extension FollowerListViewController: UserInfoVCDelegate {
         title = username
         // reset the screen
         page = 1
+        
         followers.removeAll()
         filteredFollowers.removeAll()
         collectionView.setContentOffset(.zero, animated: true)

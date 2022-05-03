@@ -22,7 +22,6 @@ struct UIHelper {
         // vertical rectangle that is slightly taller than it is width
         flowLayout.itemSize = CGSize(width: itemWidth, height: itemWidth + 40)
         
-        
         return flowLayout
     }
     

@@ -13,6 +13,8 @@ protocol UserInfoVCDelegate: AnyObject {
 
 class UserInfoViewController: GFDataLoadingVCViewController {
     
+    let scrollView = UIScrollView()
+    let contentView = UIView()
     let headerView = UIView()
     let itemViewOne = UIView()
     let itemViewTwo = UIView()
@@ -29,6 +31,18 @@ class UserInfoViewController: GFDataLoadingVCViewController {
         layoutUI()
         getUserInfo()
         
+    }
+    
+    func configureScrollView() {
+        view.addSubviews(scrollView)
+        scrollView.addSubview(contentView)
+        scrollView.pinToEdges(of: view)
+        contentView.pinToEdges(of: scrollView)
+        
+        NSLayoutConstraint.activate([
+            contentView.widthAnchor.constraint(equalTo: scrollView.widthAnchor),
+            contentView.heightAnchor.constraint(equalToConstant: 600)
+        ])
     }
     
     func configureViewController() {

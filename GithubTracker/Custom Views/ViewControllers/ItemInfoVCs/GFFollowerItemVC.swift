@@ -34,7 +34,7 @@ class GFFollowerItemVC: GFItemInfoVC {
         // want to specify itemInfoView to repo
         itemInfoViewOne.set(itemInfoType: .followers, withCount: user.followers)
         itemInfoViewTwo.set(itemInfoType: .following, withCount: user.following)
-        actionButton.set(backgroundColor: .systemGreen, title: "Get Followers")
+        actionButton.set(color: .systemGreen, title: "Get Followers", systemImageName: "person.3")
     }
     
     // when we tap the follower button -> our ItemInfoVC will say "hey delegate" which is the UserInfoVC -> UserInfoVC need sto pass that information along to FollowerListVC

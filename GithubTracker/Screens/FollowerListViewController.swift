@@ -88,25 +88,52 @@ class FollowerListViewController: GFDataLoadingVCViewController {
         showLoadingView()
         isLoadingMoreFollowers = true
         
-        // introduce completion handler via singleton and make sure to use capture list
-        NetworkManager.shared.getFollower(for: username, page: page) { [weak self] result in
-            
-            // unwrap the optional self (Introduced in Swift 4.2)
-            guard let self = self else { return }
-            self.dismissLoadingView()
-            
-            switch result {
-                // if successful..
-            case .success(let followers):
-                self.updateUI(with: followers)
-                
-                // if fails..
-            case .failure(let error):
-                self.presentGFAlertOnMainThread(title: "Bad Stuff Happened", message: error.rawValue, buttonTitle: "Ok")
+        Task {
+            do {
+                let followers = try await NetworkManager.shared.getFollower(for: username, page: page)
+                updateUI(with: followers)
+                dismissLoadingView()
+            } catch {
+                // handle errors
+                if let gfError = error as? GFError {
+                    presentGFAlert(title: "Bad Stuff Happened", message: gfError.rawValue, buttonTitle: "Ok")
+                } else {
+                    presentDefaultError()
+                }
+
+                dismissLoadingView()
             }
             
-            self.isLoadingMoreFollowers = false
+//            guard let followers = try? await NetworkManager.shared.getFollower(for: username, page: page) else {
+//                presentDefaultError()
+//                dismissLoadingView()
+//                return
+//            }
+            
+            updateUI(with: followers)
+            dismissLoadingView()
         }
+        
+        
+//        // introduce completion handler via singleton and make sure to use capture list
+//        NetworkManager.shared.getFollower(for: username, page: page) { [weak self] result in
+//
+//            // unwrap the optional self (Introduced in Swift 4.2)
+//            guard let self = self else { return }
+//            self.dismissLoadingView()
+//
+//            switch result {
+//                // if successful..
+//            case .success(let followers):
+//                self.updateUI(with: followers)
+//
+//                // if fails..
+//            case .failure(let error):
+//                self.presentGFAlertOnMainThread(title: "Bad Stuff Happened", message: error.rawValue, buttonTitle: "Ok")
+//            }
+//
+//            self.isLoadingMoreFollowers = false
+//        }
     }
     
     func updateUI(with followers: [Follower]) {

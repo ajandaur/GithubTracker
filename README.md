@@ -22,13 +22,12 @@ https://docs.github.com/en/rest/guides/getting-started-with-the-rest-api
 - Implemented reusable custom views like UIButton, UITextField, and UIAlert
 - Refactored network calls using new Async/Await feature
 
+## Demo
+![GithubTracker Demo](/Demo/demo.gif)
+
 ## What I extended from the base project
 - [ ] Adding search functionality to search Github users 
 - [ ] Show list of projects and project descriptions for Github user
 
 
-## IN-PROGRESS Demo
-![GithubTracker Demo](/Demo/demo.gif)
-
-## Currently working on..
 

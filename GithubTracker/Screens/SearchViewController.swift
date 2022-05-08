@@ -13,7 +13,7 @@ class SearchViewController: UIViewController {
     let logoImageView = UIImageView()
     
     let usernameTextField = GFTextField()
-    let callToActionButton = GFButton(color: .systemGreen, title: "Get Followers", systemImageName: "person.3")
+    let callToActionButton = GFButton(backgroundColor: .systemGreen, title: "Get Followers")
     
     // use computed property for text validation
     var isUsernameEntered: Bool {
@@ -47,7 +47,7 @@ class SearchViewController: UIViewController {
     // when you use #selector, we need to expose its function in the parameter to @objc
     @objc func pushFollowerListVC() {
         guard isUsernameEntered else {
-            presentGFAlertOnMainThread(title: "Empty Username", message: "Please enter a username. We need to know who to look for 😬", buttonTitle: "Ok")
+            presentGFAlert(title: "Empty Username", message: "Please enter a username. We need to know who to look for 😬", buttonTitle: "Ok")
             return
         }
         
